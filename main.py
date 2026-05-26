@@ -94,7 +94,30 @@ def process_file(filename):
 
     print(f"\nReport Generated: {output_file}")
     print(json.dumps(report, indent=4))
+    
+    import csv
+    csv_file = output_file.replace(".json", ".csv")
+    with open(csv_file, "w", newline="") as file:
+        writer = csv.writer(file)
 
+        writer.writerow([
+            "Agent",
+            "Packages Delivered",
+            "Total Distance",
+            "Efficiency"
+        ])
+
+        for agent_id in report:
+
+            if agent_id == "best_agent":
+                continue
+
+            writer.writerow([
+                agent_id,
+                report[agent_id]["packages_delivered"],
+                report[agent_id]["total_distance"],
+                report[agent_id]["efficiency"]
+            ])
 
 # Run Test Case 1
 # process_file("test_cases/test_case_1.json")
