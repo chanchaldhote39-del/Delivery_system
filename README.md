@@ -36,3 +36,8 @@ A report JSON file is generated for every test case containing:
 - Total distance
 - Efficiency
 - Best agent
+
+## Bonus Task Implemented
+
+- Export to CSV
+- Along with JSON reports, the system also generates CSV reports for easier analysis.
